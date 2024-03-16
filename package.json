@@ -1,0 +1,27 @@
+{
+  "name": "mascara",
+  "version": "1.0.0",
+  "description": "A log/text sanitizer and masker",
+  "main": "index.js",
+  "author": "Timi Aiyemo <cozzbie@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha",
+    "test:watch": "yarn test --watch",
+    "lint": "eslint ./src --no-cache",
+    "lint:fix": "yarn lint -- --fix"
+  },
+  "devDependencies": {
+    "@types/mocha": "10.0.6",
+    "@types/node": "20.11.28",
+    "@typescript-eslint/eslint-plugin": "7.2.0",
+    "@typescript-eslint/parser": "7.2.0",
+    "eslint": "8.57.0",
+    "eslint-config-airbnb-typescript": "18.0.0",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-unused-imports": "3.1.0",
+    "expect": "29.7.0",
+    "mocha": "10.3.0",
+    "tsx": "4.7.1"
+  }
+}

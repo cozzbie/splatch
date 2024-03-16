@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "rootDir": ".",
+        "target": "es6",
+        "lib": ["esnext"],
+        "allowJs": true,
+        "pretty": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": false,
+        "noFallthroughCasesInSwitch": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "useUnknownInCatchVariables": false,
+        "noUnusedLocals": true,
+        "alwaysStrict": true,
+        "noImplicitThis": true,
+        "strictPropertyInitialization": false,
+        "strictBindCallApply": true,
+        "strictFunctionTypes": true,
+        "strictNullChecks": true,
+        "noImplicitAny": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    }
+}

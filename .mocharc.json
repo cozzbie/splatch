@@ -1,0 +1,10 @@
+{
+    "extension": ["ts"],
+    "require": "tsx",
+    "diff": true,
+    "timeout": 10000,
+    "spec": ["src/**/*.{i,u}spec.ts"],
+    "check-leaks": true,
+    "fail-zero": true,
+    "exit": true
+}
