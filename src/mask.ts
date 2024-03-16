@@ -21,12 +21,14 @@ export const mask = (props: Mask) => {
         skip
     } = { ...defaultConfig, ...config };
     const wipe: number[][] = [];
+    const range = text.length;
+    const jump = range - end;
 
-    for (let i = start; i < (text.length - end);) {
-        const endValue = gutter || (text.length - 1 - end);
+    for (let i = start; i < jump;) {
+        const endValue = gutter ? gutter + i : jump;
 
-        wipe.push([i, i + endValue]);
-        i += (gutter + (skip || endValue));
+        wipe.push([i, endValue]);
+        i += (((skip || gutter) - 1) + endValue);
     }
 
     const initial = text.split('');
