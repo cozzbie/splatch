@@ -32,6 +32,7 @@ export const mask = (props: Mask) => {
     const initial = text.split('');
     const cleanGutters = wipe.reduce((a, b) => {
         const [s, e] = b;
+
         return a.fill(masker, s, e);
     }, initial);
 
