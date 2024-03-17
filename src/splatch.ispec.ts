@@ -159,7 +159,7 @@ describe('splatch', () => {
 
         expect(result).toEqual({
             name: 'Jane Doe',
-            token: '********-****-****-****-426614174000'
+            token: '********-****-****-****-********4000'
         });
     });
 
@@ -193,11 +193,82 @@ describe('splatch', () => {
         const result = splatch({ entry, configs });
 
         expect(result).toEqual({
-            name: 'J**e D*e',
+            name: 'J**e D**',
             maidenName: 'A****a',
-            token: '********-****-****-****-426614174000',
+            token: '********-****-****-****-********4000',
             bank: {
                 creditCard: '****-****-****-1234'
+            }
+        });
+    });
+
+    it('should splatch combined fields with defaults', () => {
+        const entry = {
+            headers: {
+                host: '127.0.0.1:42035',
+                'accept-encoding': 'gzip, deflate',
+                'x-access-token': 'LLLLLLLL.FFFFFFFFF.UUUUUUUU',
+                connection: 'close'
+            },
+            url: '/nb/v1/me',
+            method: 'GET',
+            body: {
+                status: 'success',
+                message: 'Action done successfully',
+                data: {
+                    id: 1,
+                    firstName: 'John',
+                    lastName: 'Doe',
+                    email: 'test@test.com',
+                    phoneNumber: '1234567890',
+                    business: {
+                        name: 'Ze Biz',
+                    }
+                }
+            }
+        };
+        const configs = {
+            email: {
+                fields: [/email/]
+            },
+            card: {
+                fields: [/credit/]
+            },
+            text: {
+                fields: [/name/]
+            },
+            phone: {
+                fields: [/phone/]
+            },
+            token: {
+                fields: [/token/]
+            }
+        };
+
+        const result = splatch({ entry, configs });
+
+        expect(result).toEqual({
+            headers: {
+                host: '127.0.0.1:42035',
+                'accept-encoding': 'gzip, deflate',
+                'x-access-token': '********.*********.****UUUU',
+                connection: 'close'
+            },
+            url: '/nb/v1/me',
+            method: 'GET',
+            body: {
+                status: 'success',
+                message: 'Action done successfully',
+                data: {
+                    id: 1,
+                    firstName: 'J**n',
+                    lastName: 'D**',
+                    email: 't**t@t**t.com',
+                    phoneNumber: '1234******',
+                    business: {
+                        name: '** B**'
+                    }
+                }
             }
         });
     });

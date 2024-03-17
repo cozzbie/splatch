@@ -47,4 +47,11 @@ describe('Global Mask', () => {
 
         expect(mask({ text, config })).toEqual('abc*****ijk');
     });
+
+    it('should splatch partial', () => {
+        const text = 'Doe';
+        const config = { start: 1, end: 0 };
+
+        expect(mask({ text, config })).toEqual('D**');
+    });
 });
