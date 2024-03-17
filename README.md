@@ -19,6 +19,37 @@ etc
 
 #### How to use
 
+Without custom email configurations and using the defaults
+
+```javascript
+import { blotch } from 'blotch';
+
+const entry = {
+    name: 'Jane Doe',
+    email: 'jane@doe.com',
+    business: {
+        businessEmail: 'biz@izzy.com'
+    }
+};
+const configs = {
+    email: {
+        fields: [/email/]
+    }
+};
+
+const result = blotch({ entry, configs });
+
+// {
+//  name: 'Jane Doe',
+//  email: 'j**e@**e.com',
+//  business: {
+//      businessEmail: '***@i**y.com'
+//  }
+// }
+```
+
+With custom email configuration that you can specify.
+
 ```javascript
 import { blotch } from 'blotch';
 
@@ -51,7 +82,20 @@ const result = blotch({ entry, configs });
 // }
 ```
 
-Currently 3 configurations are exposed via configurations
+#### Configuration Default
+
+|        | Description                                                                | Email | Card/Token/Generic | Phone |
+|--------|----------------------------------------------------------------------------|-------|--------------------|-------|
+| mask   | The symbol to be used with blotch/mask                                     | *     | *                  | *     |
+| start  | Where to start the blotch/mask from                                        | 1     | 0                  | 4     |
+| end    | Where to end the blotch/mask.                                              | 1     | 0                  | 0     |
+| gutter | Total number of items to show between blotches.  Typically used with skip  | 0     | 0                  | 0     |
+| skip   | Total number of items to blotch between gutters.                           | 0     | 0                  | 0     |
+
+
+#### Style Target Configurations
+
+Currently 3 special types are exposed. Every other type can be expressed via providing custom configurations for the `token` type.
 
 - Email
 
