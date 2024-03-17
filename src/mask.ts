@@ -1,15 +1,9 @@
+import { defaultGenericConfig } from './defaultConfig';
+
 interface Mask {
     text: string;
-    config?: Partial<typeof defaultConfig>
+    config?: Partial<typeof defaultGenericConfig>
 }
-
-const defaultConfig = {
-    masker: '*',
-    start: 0,
-    end: 0,
-    gutter: 0,
-    skip: 0,
-};
 
 export const mask = (props: Mask) => {
     const { text, config } = props;
@@ -19,7 +13,7 @@ export const mask = (props: Mask) => {
         end,
         gutter,
         skip
-    } = { ...defaultConfig, ...config };
+    } = { ...defaultGenericConfig, ...config };
     const wipe: number[][] = [];
     const range = text.length;
     const jump = range - end;
