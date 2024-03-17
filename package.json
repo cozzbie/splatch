@@ -1,6 +1,6 @@
 {
   "name": "splatch",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A log/text sanitizer and masker",
   "main": "bin/index.js",
   "author": "Timi Aiyemo <cozzbie@gmail.com>",
