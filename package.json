@@ -5,6 +5,7 @@
   "main": "bin/index.js",
   "author": "Timi Aiyemo <cozzbie@gmail.com>",
   "license": "MIT",
+  "types": "bin/index.d.ts",
   "scripts": {
     "build": "tsc --project tsconfig.build.json && rsync -va bin/src/* bin/ && rm -rf bin/src",
     "prepublish": "yarn build",
