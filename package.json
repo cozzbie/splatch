@@ -2,16 +2,21 @@
   "name": "blotch",
   "version": "1.0.0",
   "description": "A log/text sanitizer and masker",
-  "main": "index.js",
+  "main": "bin/index.js",
   "author": "Timi Aiyemo <cozzbie@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "build": "tsc --project tsconfig.build.json && rsync -va bin/src/* bin/ && rm -rf bin/src",
+    "prepublish": "yarn build",
+    "npm:list": "npm pack --dry-run",
+    "dry:publish": "npm publish --dry-run",
     "test": "mocha",
     "test:watch": "yarn test --watch",
     "lint": "eslint ./src --no-cache",
     "lint:fix": "yarn lint -- --fix"
   },
   "devDependencies": {
+    "@stylistic/eslint-plugin": "1.7.0",
     "@types/mocha": "10.0.6",
     "@types/node": "20.11.28",
     "@typescript-eslint/eslint-plugin": "7.2.0",
@@ -22,6 +27,22 @@
     "eslint-plugin-unused-imports": "3.1.0",
     "expect": "29.7.0",
     "mocha": "10.3.0",
-    "tsx": "4.7.1"
-  }
+    "tsx": "4.7.1",
+    "typescript": "5.4.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cozzbie/blotch.git"
+  },
+  "keywords": [
+    "mask",
+    "sanitize",
+    "node.js",
+    "npm",
+    "package"
+  ],
+  "bugs": {
+    "url": "https://github.com/cozzbie/blotch/issues"
+  },
+  "homepage": "https://github.com/cozzbie/blotch#readme"
 }
