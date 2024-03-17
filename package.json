@@ -41,7 +41,21 @@
     "sanitize",
     "node.js",
     "npm",
-    "package"
+    "package",
+    "mask",
+    "data",
+    "datamask",
+    "maskdata",
+    "hide",
+    "protect",
+    "email",
+    "card",
+    "phone",
+    "uuid",
+    "string",
+    "sensitive",
+    "jwt",
+    "token"
   ],
   "bugs": {
     "url": "https://github.com/cozzbie/splatch/issues"
