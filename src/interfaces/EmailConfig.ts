@@ -1,7 +1,7 @@
-import { defaultEmailConfig } from '../defaultConfig';
+import { defaultGenericConfig } from '../defaultConfig';
 
 export interface EmailConfig {
-    local?: Partial<typeof defaultEmailConfig>;
-    domain?: Partial<typeof defaultEmailConfig>;
-    tld?: Partial<typeof defaultEmailConfig>;
+    local?: Partial<typeof defaultGenericConfig>;
+    domain?: Partial<typeof defaultGenericConfig>;
+    tld?: Partial<typeof defaultGenericConfig>;
 }

@@ -1,13 +1,14 @@
-import { defaultPhoneConfig } from './defaultConfig';
+import { defaultGenericConfig } from './defaultConfig';
 import { mask } from './mask';
 
-export const sanitizePhone = (props: { phone: string; config?: typeof defaultPhoneConfig }) => {
+export const sanitizePhone = (props: { phone: string; config?: typeof defaultGenericConfig }) => {
     const { phone, config } = props;
 
     return mask({
         text: phone,
         config: {
-            ...defaultPhoneConfig,
+            ...defaultGenericConfig,
+            ...{ start: 4 },
             ...config
         }
     });

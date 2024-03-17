@@ -1,6 +1,11 @@
+import { defaultGenericConfig } from './defaultConfig';
 import { EmailConfig } from './interfaces/EmailConfig';
-import { defaultEmailConfig } from './defaultConfig';
 import { mask } from './mask';
+
+const defaultConfig = {
+    start: 1,
+    end: 1
+};
 
 export const sanitizeEmail = (props: { email: string; config?: EmailConfig }) => {
     const { email, config } = props;
@@ -18,7 +23,8 @@ export const sanitizeEmail = (props: { email: string; config?: EmailConfig }) =>
     const obfuscatedLocal = mask({
         text: local,
         config: {
-            ...defaultEmailConfig,
+            ...defaultGenericConfig,
+            ...defaultConfig,
             ...(local.length < 4 && {
                 start: 0,
                 end: 0,
@@ -29,7 +35,8 @@ export const sanitizeEmail = (props: { email: string; config?: EmailConfig }) =>
     const obfuscatedDomain = mask({
         text: domain,
         config: {
-            ...defaultEmailConfig,
+            ...defaultGenericConfig,
+            ...defaultConfig,
             ...(domain.length < 4 && {
                 start: 0,
                 end: 1,
@@ -40,7 +47,7 @@ export const sanitizeEmail = (props: { email: string; config?: EmailConfig }) =>
     const obfuscatedTld = mask({
         text: tld,
         config: {
-            ...defaultEmailConfig,
+            ...defaultGenericConfig,
             ...{
                 start: tld.length,
                 end: 0

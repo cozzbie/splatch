@@ -4,10 +4,11 @@ import { sanitizeCard } from './sanitizeCard';
 import { sanitizeEmail } from './sanitizeEmail';
 import { sanitizeToken } from './sanitizeToken';
 import { sanitizePhone } from './sanitizePhone';
-import { defaultPhoneConfig } from './defaultConfig';
+import { defaultGenericConfig } from './defaultConfig';
+import { sanitizeText } from './sanitizeText';
 
 interface Splatch {
-    entry: string | Record<string, unknown>;
+    entry: Record<string, unknown>;
     configs: {
         [key in keyof typeof filters]?: {
             fields?: (string | RegExp)[];
@@ -20,7 +21,8 @@ const filters = {
     email: ({ value, config }: { value: string; config: unknown }) => sanitizeEmail({ email: value, config: config as EmailConfig }),
     card: ({ value, config }: { value: string; config: unknown }) => sanitizeCard({ card: value, config: config as GenericConfig }),
     token: ({ value, config }: { value: string; config: unknown }) => sanitizeToken({ token: value, config: config as GenericConfig }),
-    phone: ({ value, config }: { value: string; config: unknown }) => sanitizePhone({ phone: value, config: config as typeof defaultPhoneConfig })
+    phone: ({ value, config }: { value: string; config: unknown }) => sanitizePhone({ phone: value, config: config as typeof defaultGenericConfig }),
+    text: ({ value, config }: { value: string; config: unknown }) => sanitizeText({ text: value, config: config as typeof defaultGenericConfig })
 };
 
 export const splatch = (props: Splatch) => {
