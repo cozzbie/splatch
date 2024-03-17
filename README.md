@@ -85,13 +85,13 @@ const result = splatch({ entry, configs });
 
 ### Configuration Default
 
-|        | Description                                                                | Email | Card/Token/Generic | Phone |
-|--------|----------------------------------------------------------------------------|-------|--------------------|-------|
-| mask   | The symbol to be used with splatch/mask                                     | *     | *                  | *     |
-| start  | Where to start the splatch/mask from                                        | 1     | 0                  | 4     |
-| end    | Where to end the splatch/mask.                                              | 1     | 0                  | 0     |
-| gutter | Total number of items to show between splatches.  Typically used with skip  | 0     | 0                  | 0     |
-| skip   | Total number of items to splatch between gutters.                           | 0     | 0                  | 0     |
+|        | Description                                                                | Email/Text | Card/Token/Generic | Phone |
+|--------|----------------------------------------------------------------------------|------------|--------------------|-------|
+| mask   | The symbol to be used with blotch/mask                                     | *          | *                  | *     |
+| start  | Where to start the blotch/mask from                                        | 1          | 0                  | 4     |
+| end    | Where to end the blotch/mask.                                              | 1          | 0                  | 0     |
+| gutter | Total number of items to show between blotches.  Typically used with skip  | 0          | 0                  | 0     |
+| skip   | Total number of items to blotch between gutters.                           | 0          | 0                  | 0     |
 
 
 ### Style Target Configurations
