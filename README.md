@@ -4,7 +4,7 @@ Flexible Log sanitization/masking.
 
 The library comes from the position of _what you want show_ as opposed to _what you do not want to show_ and what this means is that by default...everything is hidden (some exceptions exist like for emails where the default shows some entries conditionally).
 
-##### Features
+#### Features
 
 You can pretty much mask anything but the focus here is on objects with fields to be masked
 - Cards
@@ -12,12 +12,12 @@ You can pretty much mask anything but the focus here is on objects with fields t
 - Tokens
 etc
 
-##### Install
+#### Install
 
 `yarn add --exact blotch`
 
 
-##### How to use
+#### How to use
 
 ```javascript
 import { blotch } from 'blotch';
@@ -124,6 +124,6 @@ const configs = {
 Well, #$%$ happens, please report here https://github.com/cozzbie/blotch/issues
 
 
-## License
+#### License
 
 [MIT © Timi Aiyemo](https://cozzbie.mit-license.org/)
