@@ -3,6 +3,8 @@ import { EmailConfig } from './interfaces/EmailConfig';
 import { sanitizeCard } from './sanitizeCard';
 import { sanitizeEmail } from './sanitizeEmail';
 import { sanitizeToken } from './sanitizeToken';
+import { sanitizePhone } from './sanitizePhone';
+import { defaultPhoneConfig } from './defaultConfig';
 
 interface Blotch {
     entry: string | Record<string, unknown>;
@@ -17,7 +19,8 @@ interface Blotch {
 const filters = {
     email: ({ value, config }: { value: string; config: unknown }) => sanitizeEmail({ email: value, config: config as EmailConfig }),
     card: ({ value, config }: { value: string; config: unknown }) => sanitizeCard({ card: value, config: config as GenericConfig }),
-    token: ({ value, config }: { value: string; config: unknown }) => sanitizeToken({ token: value, config: config as GenericConfig })
+    token: ({ value, config }: { value: string; config: unknown }) => sanitizeToken({ token: value, config: config as GenericConfig }),
+    phone: ({ value, config }: { value: string; config: unknown }) => sanitizePhone({ phone: value, config: config as typeof defaultPhoneConfig  })
 };
 
 

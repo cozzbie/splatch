@@ -13,3 +13,11 @@ export const defaultGenericConfig = {
     gutter: 0,
     skip: 0,
 };
+
+export const defaultPhoneConfig = {
+    masker: '*',
+    start: 4,
+    end: 0,
+    gutter: 0,
+    skip: 0,
+};
