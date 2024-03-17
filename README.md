@@ -1,10 +1,10 @@
-### Blotch
+## Blotch
 
 Flexible Log sanitization/masking.
 
 The library comes from the position of _what you want show_ as opposed to _what you do not want to show_ and what this means is that by default...everything is hidden (some exceptions exist like for emails where the default shows some entries conditionally).
 
-#### Features
+### Features
 
 You can pretty much mask anything but the focus here is on objects with fields to be masked
 - Cards
@@ -12,12 +12,12 @@ You can pretty much mask anything but the focus here is on objects with fields t
 - Tokens
 etc
 
-#### Install
+### Install
 
 `yarn add --exact blotch`
 
 
-#### How to use
+### How to use
 
 Without custom email configurations and using the defaults
 
@@ -82,7 +82,7 @@ const result = blotch({ entry, configs });
 // }
 ```
 
-#### Configuration Default
+### Configuration Default
 
 |        | Description                                                                | Email | Card/Token/Generic | Phone |
 |--------|----------------------------------------------------------------------------|-------|--------------------|-------|
@@ -93,7 +93,7 @@ const result = blotch({ entry, configs });
 | skip   | Total number of items to blotch between gutters.                           | 0     | 0                  | 0     |
 
 
-#### Style Target Configurations
+### Style Target Configurations
 
 Currently 3 special types are exposed. Every other type can be expressed via providing custom configurations for the `token` type.
 
@@ -163,11 +163,11 @@ const configs = {
 };
 ```
 
-#### Report Bugs
+### Report Bugs
 
 Well, #$%$ happens, please report here https://github.com/cozzbie/blotch/issues
 
 
-#### License
+### License
 
 [MIT © Timi Aiyemo](https://cozzbie.mit-license.org/)
