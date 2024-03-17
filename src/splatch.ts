@@ -6,7 +6,7 @@ import { sanitizeToken } from './sanitizeToken';
 import { sanitizePhone } from './sanitizePhone';
 import { defaultPhoneConfig } from './defaultConfig';
 
-interface Blotch {
+interface Splatch {
     entry: string | Record<string, unknown>;
     configs: {
         [key in keyof typeof filters]?: {
@@ -23,7 +23,7 @@ const filters = {
     phone: ({ value, config }: { value: string; config: unknown }) => sanitizePhone({ phone: value, config: config as typeof defaultPhoneConfig })
 };
 
-export const blotch = (props: Blotch) => {
+export const splatch = (props: Splatch) => {
     const { entry, configs = {} } = props;
     const configEntries = Object.entries(configs);
     const out: Record<string, unknown> = {};
@@ -37,7 +37,7 @@ export const blotch = (props: Blotch) => {
             const value = entry[i];
 
             if (typeof value === 'object') {
-                out[i] = blotch({ entry: value as Record<string, unknown>, configs });
+                out[i] = splatch({ entry: value as Record<string, unknown>, configs });
             } else {
                 for (const [filter, { fields = [], config }] of configEntries) {
                     if (fields.some((field) => RegExp(field, 'i').test(i))) {

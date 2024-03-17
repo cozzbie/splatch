@@ -1,8 +1,8 @@
 import { expect } from 'expect';
-import { blotch } from './blotch';
+import { splatch } from './splatch';
 
-describe('Blotch', () => {
-    it('should blotch email section on an object', () => {
+describe('splatch', () => {
+    it('should splatch email section on an object', () => {
         const entry = {
             name: 'Jane Doe',
             email: 'jane@doe.com',
@@ -16,7 +16,7 @@ describe('Blotch', () => {
             }
         };
 
-        const result = blotch({ entry, configs });
+        const result = splatch({ entry, configs });
 
         expect(result).toEqual({
             name: 'Jane Doe',
@@ -27,7 +27,7 @@ describe('Blotch', () => {
         });
     });
 
-    it('should blotch email section using regex for email', () => {
+    it('should splatch email section using regex for email', () => {
         const entry = {
             name: 'Jane Doe',
             email: 'jane@doe.com',
@@ -41,7 +41,7 @@ describe('Blotch', () => {
             }
         };
 
-        const result = blotch({ entry, configs });
+        const result = splatch({ entry, configs });
 
         expect(result).toEqual({
             name: 'Jane Doe',
@@ -52,7 +52,7 @@ describe('Blotch', () => {
         });
     });
 
-    it('should blotch email with custom config', () => {
+    it('should splatch email with custom config', () => {
         const entry = {
             name: 'Jane Doe',
             email: 'jane@doe.com',
@@ -71,7 +71,7 @@ describe('Blotch', () => {
             }
         };
 
-        const result = blotch({ entry, configs });
+        const result = splatch({ entry, configs });
 
         expect(result).toEqual({
             name: 'Jane Doe',
@@ -82,7 +82,7 @@ describe('Blotch', () => {
         });
     });
 
-    it('should blotch a card', () => {
+    it('should splatch a card', () => {
         const entry = {
             name: 'Jane Doe',
             credit: '1234-5678-8765-1234',
@@ -96,7 +96,7 @@ describe('Blotch', () => {
             }
         };
 
-        const result = blotch({ entry, configs });
+        const result = splatch({ entry, configs });
 
         expect(result).toEqual({
             name: 'Jane Doe',
@@ -107,7 +107,7 @@ describe('Blotch', () => {
         });
     });
 
-    it('should blotch a card with custom filters', () => {
+    it('should splatch a card with custom filters', () => {
         const entry = {
             name: 'Jane Doe',
             credit: '1234-5678-8765-1234',
@@ -133,7 +133,7 @@ describe('Blotch', () => {
             }
         };
 
-        const result = blotch({ entry, configs });
+        const result = splatch({ entry, configs });
 
         expect(result).toEqual({
             name: 'Jane Doe',
@@ -144,7 +144,7 @@ describe('Blotch', () => {
         });
     });
 
-    it('should blotch tokens', () => {
+    it('should splatch tokens', () => {
         const entry = {
             name: 'Jane Doe',
             token: '123e4567-e89b-12d3-a456-426614174000'
@@ -155,7 +155,7 @@ describe('Blotch', () => {
             }
         };
 
-        const result = blotch({ entry, configs });
+        const result = splatch({ entry, configs });
 
         expect(result).toEqual({
             name: 'Jane Doe',

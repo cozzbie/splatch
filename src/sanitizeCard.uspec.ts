@@ -2,13 +2,13 @@ import { expect } from 'expect';
 import { sanitizeCard } from './sanitizeCard';
 
 describe('Sanitize Cards', () => {
-    it('should blotch out parts of a card', () => {
+    it('should splatch out parts of a card', () => {
         const card = '1234-5678-1234-5678';
 
         expect(sanitizeCard({ card })).toEqual('****-****-****-5678');
     });
 
-    it('should blotch out the first and last sections', () => {
+    it('should splatch out the first and last sections', () => {
         const card = '1234-5678-1234-5678';
         const config = {
             sections: [

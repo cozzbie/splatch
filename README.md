@@ -1,4 +1,4 @@
-## Blotch
+## splatch
 
 Flexible Log sanitization/masking.
 
@@ -14,7 +14,8 @@ etc
 
 ### Install
 
-`yarn add --exact blotch`
+- `yarn add --exact splatch`
+- `npm i --save-exact --save @cozzbie/splatch`
 
 
 ### How to use
@@ -22,7 +23,7 @@ etc
 Without custom email configurations and using the defaults
 
 ```javascript
-import { blotch } from 'blotch';
+import { splatch } from 'splatch';
 
 const entry = {
     name: 'Jane Doe',
@@ -37,7 +38,7 @@ const configs = {
     }
 };
 
-const result = blotch({ entry, configs });
+const result = splatch({ entry, configs });
 
 // {
 //  name: 'Jane Doe',
@@ -51,7 +52,7 @@ const result = blotch({ entry, configs });
 With custom email configuration that you can specify.
 
 ```javascript
-import { blotch } from 'blotch';
+import { splatch } from 'splatch';
 
 const entry = {
     name: 'Jane Doe',
@@ -71,7 +72,7 @@ const configs = {
     }
 };
 
-const result = blotch({ entry, configs });
+const result = splatch({ entry, configs });
 
 // {
 //  name: 'Jane Doe',
@@ -86,11 +87,11 @@ const result = blotch({ entry, configs });
 
 |        | Description                                                                | Email | Card/Token/Generic | Phone |
 |--------|----------------------------------------------------------------------------|-------|--------------------|-------|
-| mask   | The symbol to be used with blotch/mask                                     | *     | *                  | *     |
-| start  | Where to start the blotch/mask from                                        | 1     | 0                  | 4     |
-| end    | Where to end the blotch/mask.                                              | 1     | 0                  | 0     |
-| gutter | Total number of items to show between blotches.  Typically used with skip  | 0     | 0                  | 0     |
-| skip   | Total number of items to blotch between gutters.                           | 0     | 0                  | 0     |
+| mask   | The symbol to be used with splatch/mask                                     | *     | *                  | *     |
+| start  | Where to start the splatch/mask from                                        | 1     | 0                  | 4     |
+| end    | Where to end the splatch/mask.                                              | 1     | 0                  | 0     |
+| gutter | Total number of items to show between splatches.  Typically used with skip  | 0     | 0                  | 0     |
+| skip   | Total number of items to splatch between gutters.                           | 0     | 0                  | 0     |
 
 
 ### Style Target Configurations
@@ -133,7 +134,7 @@ const configs = {
         config: {
             sections: [
                 {
-                    index: 0, // Select how you want a sectio of the card to be masked
+                    index: 0, // Select how you want a section of the card to be masked
                     config: {
                         start: 4 // where you would want the mask to start from
                     }
@@ -165,7 +166,7 @@ const configs = {
 
 ### Report Bugs
 
-Well, #$%$ happens, please report here https://github.com/cozzbie/blotch/issues
+Well, #$%$ happens, please report here https://github.com/cozzbie/splatch/issues
 
 
 ### License

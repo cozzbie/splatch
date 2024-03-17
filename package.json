@@ -1,5 +1,5 @@
 {
-  "name": "blotch",
+  "name": "splatch",
   "version": "1.0.0",
   "description": "A log/text sanitizer and masker",
   "main": "bin/index.js",
@@ -9,6 +9,7 @@
     "build": "tsc --project tsconfig.build.json && rsync -va bin/src/* bin/ && rm -rf bin/src",
     "prepublish": "yarn build",
     "npm:list": "npm pack --dry-run",
+    "npm:publish": "npm publish --access=public",
     "dry:publish": "npm publish --dry-run",
     "test": "mocha",
     "test:watch": "yarn test --watch",
@@ -32,7 +33,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cozzbie/blotch.git"
+    "url": "git+https://github.com/cozzbie/splatch.git"
   },
   "keywords": [
     "mask",
@@ -42,7 +43,10 @@
     "package"
   ],
   "bugs": {
-    "url": "https://github.com/cozzbie/blotch/issues"
+    "url": "https://github.com/cozzbie/splatch/issues"
   },
-  "homepage": "https://github.com/cozzbie/blotch#readme"
+  "homepage": "https://github.com/cozzbie/splatch#readme",
+  "bin": {
+    "splatch": "bin/index.js"
+  }
 }

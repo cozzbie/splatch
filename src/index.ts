@@ -1,1 +1,1 @@
-export { blotch } from './blotch';
+export { splatch } from './splatch';
