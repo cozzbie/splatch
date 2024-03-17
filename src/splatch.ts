@@ -22,7 +22,7 @@ const filters = {
     card: ({ value, config }: { value: string; config: unknown }) => sanitizeCard({ card: value, config: config as GenericConfig }),
     token: ({ value, config }: { value: string; config: unknown }) => sanitizeToken({ token: value, config: config as GenericConfig }),
     phone: ({ value, config }: { value: string; config: unknown }) => sanitizePhone({ phone: value, config: config as typeof defaultGenericConfig }),
-    text: ({ value, config }: { value: string; config: unknown }) => sanitizeText({ text: value, config: config as typeof defaultGenericConfig })
+    text: ({ value, config }: { value: string; config: unknown }) => sanitizeText({ text: value, config: config as GenericConfig })
 };
 
 export const splatch = (props: Splatch) => {
@@ -41,14 +41,14 @@ export const splatch = (props: Splatch) => {
             if (typeof value === 'object') {
                 out[i] = splatch({ entry: value as Record<string, unknown>, configs });
             } else {
-                for (const [filter, { fields = [], config }] of configEntries) {
-                    if (fields.some((field) => RegExp(field, 'i').test(i))) {
-                        const chosen = filters[filter as keyof typeof filters];
-                        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-                        out[i] = chosen ? chosen({ value: value as string, config }) : value;
-                    } else {
-                        out[i] = value;
-                    }
+                const ref = configEntries.find(([, { fields = [] }]) => fields.some((f) => RegExp(f, 'i').test(i)));
+                if (ref) {
+                    const [algo, { config }] = ref;
+                    const chosen = filters[algo as keyof typeof filters];
+                    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+                    out[i] = chosen ? chosen({ value: value as string, config }) : value;
+                } else {
+                    out[i] = value;
                 }
             }
         }

@@ -1,18 +1,25 @@
-import { defaultGenericConfig } from './defaultConfig';
-import { mask } from './mask';
+import { GenericConfig } from './interfaces/GenericConfig';
+import { sanitizeGeneric } from './sanitizeGeneric';
 
-export const sanitizeText = (props: { text: string; config?: typeof defaultGenericConfig }) => {
-    const { text, config } = props;
+export const sanitizeText = (props: { text: string; config?: GenericConfig }) => {
+    const { text, ...rest } = props;
 
-    return mask({
-        text,
+    return sanitizeGeneric({
+        ...rest,
+        entry: text,
+        seperator: ' ',
         config: {
-            ...defaultGenericConfig,
-            ...{
+            all: {
                 start: 1,
                 end: 1
             },
-            ...config
+            sections: [{
+                config: {
+                    start: 1,
+                    end: 1
+                }
+            }],
+            ...rest.config?.sections
         }
     });
 };

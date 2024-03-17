@@ -162,4 +162,43 @@ describe('splatch', () => {
             token: '********-****-****-****-426614174000'
         });
     });
+
+    it('should splatch combined fields', () => {
+        const entry = {
+            name: 'Jane Doe',
+            maidenName: 'Abiola',
+            token: '123e4567-e89b-12d3-a456-426614174000',
+            bank: {
+                creditCard: '1234-5678-8765-1234'
+            }
+        };
+        const configs = {
+            email: {
+                fields: [/email/]
+            },
+            card: {
+                fields: [/credit/]
+            },
+            phone: {
+                fields: [/phone/]
+            },
+            token: {
+                fields: [/token/]
+            },
+            text: {
+                fields: [/name/]
+            }
+        };
+
+        const result = splatch({ entry, configs });
+
+        expect(result).toEqual({
+            name: 'J**e D*e',
+            maidenName: 'A****a',
+            token: '********-****-****-****-426614174000',
+            bank: {
+                creditCard: '****-****-****-1234'
+            }
+        });
+    });
 });

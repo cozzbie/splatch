@@ -1,8 +1,9 @@
 import { defaultGenericConfig } from '../defaultConfig';
 
 export interface GenericConfig {
-    sections: {
-        index: number;
+    all?: Partial<typeof defaultGenericConfig>
+    sections?: {
+        index?: number;
         config?: Partial<typeof defaultGenericConfig>
     }[];
 }

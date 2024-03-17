@@ -16,9 +16,10 @@ export const sanitizeGeneric = (props: { entry: string; config?: GenericConfig, 
             }
         ]
     };
-    const { sections } = { ...baseConfig, ...config };
+    const { all, sections = [] } = { ...baseConfig, ...config };
     const entries = plucked.map((text, idx) => {
-        const { config: cfg } = sections.find(({ index }) => idx === index) || { config: defaultGenericConfig };
+        const { config: cfg } = sections.find(({ index }) => idx === index) || { config: all || defaultGenericConfig };
+
         return mask({ text, config: cfg });
     });
 
