@@ -31,7 +31,12 @@ describe('Global Mask', () => {
 
     it('should blotch out gutters and skip', () => {
         const text = 'abcdefghijk';
-        const config = { start: 1, end: 1, gutter: 3, skip: 2 };
+        const config = {
+            start: 1,
+            end: 1,
+            gutter: 3,
+            skip: 2
+        };
 
         expect(mask({ text, config })).toEqual('a***ef***jk');
     });
