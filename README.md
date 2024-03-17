@@ -1,4 +1,4 @@
-## splatch
+## Splatch
 
 Flexible Log sanitization/masking.
 
