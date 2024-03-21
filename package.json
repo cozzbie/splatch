@@ -8,7 +8,6 @@
   "types": "bin/index.d.ts",
   "scripts": {
     "build": "tsc --project tsconfig.build.json && rsync -va bin/src/* bin/ && rm -rf bin/src",
-    "prepublish": "yarn build",
     "publish": "npm publish",
     "npm:list": "npm pack --dry-run",
     "npm:publish": "npm publish --access=public",
