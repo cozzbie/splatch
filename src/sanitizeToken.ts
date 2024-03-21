@@ -3,7 +3,7 @@ import { GenericConfig } from './interfaces/GenericConfig';
 import { sanitizeGeneric } from './sanitizeGeneric';
 
 export const sanitizeToken = (props: { token: string; config?: GenericConfig; }) => {
-    const { token, ...rest } = props;
+    const { token = '', ...rest } = props;
     const dotSeparator = token.includes('.') && '.';
     const dashSeparator = token.includes('-') && '-';
     const seperator = dotSeparator || dashSeparator || ' ';

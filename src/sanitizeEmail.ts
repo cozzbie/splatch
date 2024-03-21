@@ -8,7 +8,7 @@ const defaultConfig = {
 };
 
 export const sanitizeEmail = (props: { email: string; config?: EmailConfig }) => {
-    const { email, config } = props;
+    const { email = '', config } = props;
     const {
         local: localConfig,
         domain: domainConfig,

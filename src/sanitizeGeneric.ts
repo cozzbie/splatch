@@ -3,7 +3,7 @@ import { GenericConfig } from './interfaces/GenericConfig';
 import { mask } from './mask';
 
 export const sanitizeGeneric = (props: { entry: string; config?: GenericConfig, seperator: string }) => {
-    const { entry, config, seperator } = props;
+    const { entry = '', config, seperator } = props;
     const plucked = entry.split(seperator);
     const { all, sections = [] } = config || {};
 
