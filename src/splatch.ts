@@ -46,7 +46,7 @@ export const splatch = (props: Splatch) => {
                     const [algo, { config }] = ref;
                     const chosen = filters[algo as keyof typeof filters];
                     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-                    out[i] = chosen ? chosen({ value: value as string, config }) : value;
+                    out[i] = chosen ? chosen({ value: (value as string || '').toString(), config }) : value;
                 } else {
                     out[i] = value;
                 }
