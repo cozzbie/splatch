@@ -272,4 +272,31 @@ describe('splatch', () => {
             }
         });
     });
+
+    it('should pass infinit loop', () => {
+        const entry = {
+            name: 'A - B'
+        };
+        const configs = {
+            email: {
+                fields: [/email/]
+            },
+            card: {
+                fields: [/credit/]
+            },
+            text: {
+                fields: [/name/]
+            },
+            phone: {
+                fields: [/phone/]
+            },
+            token: {
+                fields: [/token/, 'authorization']
+            }
+        };
+
+        const result = splatch({ entry, configs });
+
+        expect(result).toEqual({ name: '* * *' });
+    });
 });

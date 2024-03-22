@@ -16,13 +16,13 @@ export const mask = (props: Mask) => {
     } = { ...defaultGenericConfig, ...config };
     const wipe: number[][] = [];
     const range = text.length;
-    const jump = range - end;
+    const jump = (range - end) > 0 ? range - end : 1;
 
     for (let i = start; i < jump;) {
         const endValue = gutter ? gutter + i : jump;
 
         wipe.push([i, endValue]);
-        i += (((skip || gutter) - 1) + endValue);
+        i += ((skip || gutter) ? ((skip || gutter) - 1) : 0) + endValue;
     }
 
     const initial = text.split('');
