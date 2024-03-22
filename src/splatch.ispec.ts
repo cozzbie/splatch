@@ -299,4 +299,28 @@ describe('splatch', () => {
 
         expect(result).toEqual({ name: '* * *' });
     });
+
+    it('should match exact refs', () => {
+        const entry = {
+            bankEmail: 'bank@email.com',
+            bankAddress: 'Wellington Road',
+            address: 'Wellington Road'
+        };
+        const configs = {
+            email: {
+                fields: [/email/]
+            },
+            text: {
+                fields: ['address']
+            }
+        };
+
+        const result = splatch({ entry, configs });
+
+        expect(result).toEqual({
+            bankEmail: 'b**k@e***l.com',
+            address: 'W********n R**d',
+            bankAddress: 'Wellington Road',
+        });
+    });
 });

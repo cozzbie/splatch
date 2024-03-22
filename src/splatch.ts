@@ -41,7 +41,7 @@ export const splatch = (props: Splatch) => {
             if (typeof value === 'object') {
                 out[i] = splatch({ entry: value as Record<string, unknown>, configs });
             } else {
-                const ref = configEntries.find(([, { fields = [] }]) => fields.some((f) => RegExp(f, 'i').test(i)));
+                const ref = configEntries.find(([, { fields = [] }]) => fields.some((f) => (f instanceof RegExp ? RegExp(f, 'i').test(i) : f.toLowerCase() === i.toLowerCase())));
                 if (ref) {
                     const [algo, { config }] = ref;
                     const chosen = filters[algo as keyof typeof filters];
